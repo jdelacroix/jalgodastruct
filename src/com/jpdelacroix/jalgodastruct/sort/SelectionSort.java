@@ -5,11 +5,11 @@ package com.jpdelacroix.jalgodastruct.sort;
 
 import java.util.ArrayList;
 
-public class SelectionSort implements SortingAlgorithm {
+public class SelectionSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 
 	
 	@Override
-	public <E extends Comparable<E>> void sort(ArrayList<E> list) {
+	public void sort(ArrayList<E> list) {
 		int indexOfMin = 0;
 		for (int i=0; i<list.size()-1; i++) {
 			indexOfMin = i;

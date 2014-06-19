@@ -12,13 +12,13 @@ import java.util.ArrayList;
  * 
  * @author Jean-Pierre de la Croix
  */
-public interface SortingAlgorithm {
+public interface SortingAlgorithm<E extends Comparable<E>> {
 	
 	/**
 	 * sort() sorts in-place Comparables in a possibly unsorted ArrayList.
 	 * @param list		A possibly unsorted ArrayList of comparable Objects
 	 */
-	public <E extends Comparable<E>> void sort(ArrayList<E> list);
+	public void sort(ArrayList<E> list);
 	
 	/**
 	 * swap() switches Objects at two indices within an ArrayList
@@ -26,7 +26,7 @@ public interface SortingAlgorithm {
 	 * @param indexA	Index of the first Object
 	 * @param indexB	Index of the second Object
 	 */
-	public default <E> void swap(ArrayList<E> list, int indexA, int indexB) {
+	public default void swap(ArrayList<E> list, int indexA, int indexB) {
 		E itemC = list.get(indexA);
 		list.set(indexA, list.get(indexB));
 		list.set(indexB, itemC);

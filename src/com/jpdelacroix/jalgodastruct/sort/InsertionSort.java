@@ -5,7 +5,7 @@
  * Comments:
  * 
  * Insertion sort is very fast on small arrays, best case O(n), worst and average O(n^2)
- * In fact, O(n+d), where d is the number of inversions
+ * In fact, O(n+d) if mostly sorted, where d is the number of inversions
  * 
  * Online and partial sorts are possible, because after k steps, the first k items in the
  * array are sorted (versus the k smallest values, see selection sort). 
@@ -18,10 +18,10 @@ package com.jpdelacroix.jalgodastruct.sort;
 
 import java.util.ArrayList;
 
-public class InsertionSort implements SortingAlgorithm {
+public class InsertionSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 
 	@Override
-	public <E extends Comparable<E>> void sort(ArrayList<E> list) {
+	public void sort(ArrayList<E> list) {
 		int j = 0;
 		for (int i=0; i<list.size(); i++) {
 			j = i;
