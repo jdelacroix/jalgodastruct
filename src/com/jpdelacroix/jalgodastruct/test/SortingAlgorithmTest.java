@@ -8,6 +8,7 @@ import java.util.Arrays;
 import org.junit.Test;
 
 import com.jpdelacroix.jalgodastruct.sort.BubbleSort;
+import com.jpdelacroix.jalgodastruct.sort.HeapSort;
 import com.jpdelacroix.jalgodastruct.sort.InsertionSort;
 import com.jpdelacroix.jalgodastruct.sort.MergeSort;
 import com.jpdelacroix.jalgodastruct.sort.QuickSort;
@@ -52,6 +53,13 @@ public class SortingAlgorithmTest {
 	public void testMergeSort() {
 		System.out.println("Testing MERGE SORT");
 		Integer[] sortedArray = sortArrayUsing(new MergeSort<Integer>());
+		assertEquals(Arrays.toString(sortedArray), "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
+	}
+	
+	@Test
+	public void testHeapSort() {
+		System.out.println("Testing HEAP SORT");
+		Integer[] sortedArray = sortArrayUsing(new HeapSort<Integer>());
 		assertEquals(Arrays.toString(sortedArray), "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
 	}
 

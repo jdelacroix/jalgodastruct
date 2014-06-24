@@ -1,16 +1,16 @@
 package com.jpdelacroix.jalgodastruct.sort;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.List;
+//import java.util.Random;
 
 public class QuickSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 
 	@Override
-	public void sort(ArrayList<E> list) {
+	public void sort(List<E> list) {
 		subsort(list, 0, list.size()-1);
 	}
 	
-	private void subsort(ArrayList<E> list, int startIndex, int endIndex) {
+	private void subsort(List<E> list, int startIndex, int endIndex) {
 		if (startIndex < endIndex) {
 			int pivotIndex = partition(list, startIndex, endIndex);
 			subsort(list, startIndex, pivotIndex-1);
@@ -18,7 +18,7 @@ public class QuickSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 		}
 	}
 	
-	private int partition(ArrayList<E> list, int startIndex, int endIndex) {
+	private int partition(List<E> list, int startIndex, int endIndex) {
 		// Optionally, randomly pick the pivot, else pick endIndex as pivotIndex
 //		int pivotIndex = startIndex+(new Random()).nextInt(endIndex-startIndex+1);
 //		swap(list, pivotIndex, endIndex);

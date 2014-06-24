@@ -6,17 +6,17 @@ package com.jpdelacroix.jalgodastruct.sort;
  * Divide and conquer (just like QuickSort) and after subdividing, merge the two arrays
  */
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.LinkedList;
 
 public class MergeSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 
 	@Override
-	public void sort(ArrayList<E> list) {
+	public void sort(List<E> list) {
 		subsort(list, 0, list.size()-1);
 	}
 	
-	public void subsort(ArrayList<E> list, int startIndex, int endIndex) {
+	public void subsort(List<E> list, int startIndex, int endIndex) {
 		if (startIndex < endIndex) {
 			int pivotIndex = (startIndex+endIndex)/2;
 			subsort(list, startIndex, pivotIndex);
@@ -25,7 +25,7 @@ public class MergeSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 		}
 	}
 	
-	public void merge(ArrayList<E> list, int startIndex, int pivotIndex, int endIndex) {
+	public void merge(List<E> list, int startIndex, int pivotIndex, int endIndex) {
 		LinkedList<E> arrayA = new LinkedList<>(list.subList(startIndex, pivotIndex+1));
 		LinkedList<E> arrayB = new LinkedList<>(list.subList(pivotIndex+1, endIndex+1));
 		

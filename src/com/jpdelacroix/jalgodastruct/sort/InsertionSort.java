@@ -16,12 +16,12 @@
 
 package com.jpdelacroix.jalgodastruct.sort;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class InsertionSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 
 	@Override
-	public void sort(ArrayList<E> list) {
+	public void sort(List<E> list) {
 		int j = 0;
 		for (int i=0; i<list.size(); i++) {
 			j = i;
@@ -33,7 +33,7 @@ public class InsertionSort<E extends Comparable<E>> implements SortingAlgorithm<
 	}
 	
 //	@Override
-//	public <E extends Comparable<E>> void sort(ArrayList<E> list) {
+//	public void sort(List<E> list) {
 //		E currentItem;
 //		int j = 0;
 //		for (int i=0; i<list.size(); i++) {
