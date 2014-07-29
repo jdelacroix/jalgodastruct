@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.jpdelacroix.jalgodastruct.sort.BubbleSort;
@@ -17,14 +19,26 @@ import com.jpdelacroix.jalgodastruct.sort.SortingAlgorithm;
 
 public class SortingAlgorithmTest {
 	
-	private final Integer[] unsortedArray = {3, 9, 4, 5, 1, 2, 7, 6, 8};
+	public static final int ARRAY_SIZE = 10000;
+	private Integer[] unsortedArray, solutionArray;
+	
+	@Before
+	public void setUp() {
+		Random rg = new Random();
+		unsortedArray = new Integer[ARRAY_SIZE];
+		for (int i=0; i<unsortedArray.length; i++) {
+			unsortedArray[i] = rg.nextInt(ARRAY_SIZE);
+		}
+		solutionArray = unsortedArray.clone();
+		Arrays.sort(solutionArray);
+	}
 
 	@Test
-	public void testBubleSort() {
+	public void testBubbleSort() {
 		SortingAlgorithm<Integer> sortingAlgorithm = new BubbleSort<>();
 		System.out.println("Testing BUBBLE SORT");
 		Integer[] sortedArray = sortArrayUsing(sortingAlgorithm);
-		assertEquals(Arrays.toString(sortedArray), "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
+		assertEquals(Arrays.toString(sortedArray), Arrays.toString(solutionArray));
 	}
 	
 	@Test
@@ -32,35 +46,35 @@ public class SortingAlgorithmTest {
 		SortingAlgorithm<Integer> sortingAlgorithm = new SelectionSort<>();
 		System.out.println("Testing SELECTION SORT");
 		Integer[] sortedArray = sortArrayUsing(sortingAlgorithm);
-		assertEquals(Arrays.toString(sortedArray), "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
+		assertEquals(Arrays.toString(sortedArray), Arrays.toString(solutionArray));
 	}
 	
 	@Test
 	public void testInsertionSort() {
 		System.out.println("Testing INSERTION SORT");
 		Integer[] sortedArray = sortArrayUsing(new InsertionSort<Integer>());
-		assertEquals(Arrays.toString(sortedArray), "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
+		assertEquals(Arrays.toString(sortedArray), Arrays.toString(solutionArray));
 	}
 	
 	@Test
 	public void testQuickSort() {
 		System.out.println("Testing QUICK SORT");
 		Integer[] sortedArray = sortArrayUsing(new QuickSort<Integer>());
-		assertEquals(Arrays.toString(sortedArray), "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
+		assertEquals(Arrays.toString(sortedArray), Arrays.toString(solutionArray));
 	}
 	
 	@Test
 	public void testMergeSort() {
 		System.out.println("Testing MERGE SORT");
 		Integer[] sortedArray = sortArrayUsing(new MergeSort<Integer>());
-		assertEquals(Arrays.toString(sortedArray), "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
+		assertEquals(Arrays.toString(sortedArray), Arrays.toString(solutionArray));
 	}
 	
 	@Test
 	public void testHeapSort() {
 		System.out.println("Testing HEAP SORT");
 		Integer[] sortedArray = sortArrayUsing(new HeapSort<Integer>());
-		assertEquals(Arrays.toString(sortedArray), "[1, 2, 3, 4, 5, 6, 7, 8, 9]");
+		assertEquals(Arrays.toString(sortedArray), Arrays.toString(solutionArray));
 	}
 
 	private Integer[] sortArrayUsing(SortingAlgorithm<Integer> sortingAlgorithm) {

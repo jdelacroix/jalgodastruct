@@ -26,8 +26,14 @@ public class MergeSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 	}
 	
 	public void merge(List<E> list, int startIndex, int pivotIndex, int endIndex) {
-		LinkedList<E> arrayA = new LinkedList<>(list.subList(startIndex, pivotIndex+1));
-		LinkedList<E> arrayB = new LinkedList<>(list.subList(pivotIndex+1, endIndex+1));
+		LinkedList<E> arrayA = new LinkedList<>(), arrayB = new LinkedList<>();
+		
+		for (int i=startIndex; i<=pivotIndex; i++) {
+			arrayA.add(list.get(i));
+		}
+		for (int i=pivotIndex+1; i<=endIndex; i++) {
+			arrayB.add(list.get(i));
+		}
 		
 		int i = startIndex;
 		while (!arrayA.isEmpty() && !arrayB.isEmpty()) {
@@ -38,11 +44,11 @@ public class MergeSort<E extends Comparable<E>> implements SortingAlgorithm<E> {
 			}
 			i++;
 		}
-		for (int j=0; j<arrayA.size(); j++) {
+		while (!arrayA.isEmpty()) {
 			list.set(i, arrayA.removeFirst());
 			i++;
 		}
-		for (int j=0; j<arrayB.size(); j++) {
+		while (!arrayB.isEmpty()) {
 			list.set(i, arrayB.removeFirst());
 			i++;
 		}

@@ -1,9 +1,11 @@
+// Copyright (C) 2014 Jean-Pierre de la Croix
+// see the LICENSE file included with this software
+
 package com.jpdelacroix.jalgodastruct.heap;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-@SuppressWarnings("serial")
 public class BinaryMaxHeap<E extends Comparable<E>> implements Heap<E> {
 	
 	private ArrayList<E> internalArray = new ArrayList<>();

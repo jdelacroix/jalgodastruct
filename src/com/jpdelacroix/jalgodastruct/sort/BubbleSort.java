@@ -1,5 +1,6 @@
 // Copyright (C) 2014 Jean-Pierre de la Croix
 // see the LICENSE file included with this software
+
 package com.jpdelacroix.jalgodastruct.sort;
 
 import java.util.List;
