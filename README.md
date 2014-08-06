@@ -10,5 +10,5 @@ Contents:
 + BubbleSort, SelectionSort, and InsertionSort
 + MergeSort, QuickSort, and HeapSort
 
-##### Heap data structure (jaglodastruct.heap)
+##### Heap data structure (jalgodastruct.heap)
 + Binary max heap (BinaryMaxHeap)
